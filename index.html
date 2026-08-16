@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Request a conversation about personal financial planning, investments, savings, retirement, or general financial guidance."
+    />
+    <meta name="theme-color" content="oklch(0.08 0 0)" />
+    <title>Financial Consultation Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro__inner">
+          <p class="time-note">
+            <span aria-hidden="true"></span>
+            About 3 minutes
+          </p>
+
+          <div class="intro__heading">
+            <p class="page-label">Financial Consultation Form</p>
+            <h1 id="page-title">Start with a conversation.</h1>
+            <p class="intro__copy">
+              Share what you’re working toward so the first conversation can focus on what matters to you.
+            </p>
+          </div>
+
+          <dl class="reassurance-list">
+            <div>
+              <dt>Private by design</dt>
+              <dd>Only share what is useful for an initial conversation.</dd>
+            </div>
+            <div>
+              <dt>Personal, not business</dt>
+              <dd>For personal planning, investments, savings, and retirement goals.</dd>
+            </div>
+          </dl>
+
+          <p class="intro__footnote">
+            This form does not provide financial advice or guarantee investment outcomes.
+          </p>
+        </div>
+      </section>
+
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="form-panel__inner">
+          <header class="form-header">
+            <p class="section-marker">Consultation request</p>
+            <h2 id="form-title">Tell us a little about you</h2>
+            <p>Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">required</span> are required.</p>
+          </header>
+
+          <div class="privacy-notice" role="note">
+            <strong>Keep sensitive details private.</strong>
+            <p>Do not include account numbers, passwords, PINs, or identity-document numbers.</p>
+          </div>
+
+          <div class="error-summary" id="error-summary" role="alert" tabindex="-1" hidden>
+            <h3>Please check the highlighted fields</h3>
+            <ul id="error-list"></ul>
+          </div>
+
+          <form
+            name="financial-consultation"
+            method="POST"
+            action="/"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="consultation-form"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="financial-consultation" />
+            <p class="bot-field" aria-hidden="true">
+              <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="full-name">Full name <span aria-hidden="true">*</span></label>
+                <input
+                  id="full-name"
+                  name="full-name"
+                  type="text"
+                  autocomplete="name"
+                  maxlength="100"
+                  required
+                  aria-describedby="full-name-error"
+                />
+                <p class="field-error" id="full-name-error"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email address <span aria-hidden="true">*</span></label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  maxlength="160"
+                  required
+                  aria-describedby="email-error"
+                />
+                <p class="field-error" id="email-error"></p>
+              </div>
+
+              <div class="field field--wide">
+                <label for="phone">Phone number <span class="optional">Optional</span></label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  maxlength="30"
+                  aria-describedby="phone-hint phone-error"
+                />
+                <p class="field-hint" id="phone-hint">Include your country or area code.</p>
+                <p class="field-error" id="phone-error"></p>
+              </div>
+            </div>
+
+            <fieldset class="field-group" id="interest-group" aria-describedby="interest-hint interest-error">
+              <legend>What would you like to discuss? <span aria-hidden="true">*</span></legend>
+              <p class="field-hint" id="interest-hint">Choose all that apply.</p>
+              <div class="choice-grid">
+                <label class="choice">
+                  <input type="checkbox" name="interest" value="Personal financial planning" />
+                  <span>Personal financial planning</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="interest" value="Investments" />
+                  <span>Investments</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="interest" value="Savings" />
+                  <span>Savings</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="interest" value="Retirement" />
+                  <span>Retirement</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="interest" value="General guidance" />
+                  <span>General guidance</span>
+                </label>
+              </div>
+              <p class="field-error" id="interest-error"></p>
+            </fieldset>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="primary-goal">Primary goal <span aria-hidden="true">*</span></label>
+                <select id="primary-goal" name="primary-goal" required aria-describedby="primary-goal-error">
+                  <option value="">Select your main goal</option>
+                  <option>Build an investment plan</option>
+                  <option>Save for a major goal</option>
+                  <option>Prepare for retirement</option>
+                  <option>Review my current finances</option>
+                  <option>Understand my options</option>
+                  <option>Something else</option>
+                </select>
+                <p class="field-error" id="primary-goal-error"></p>
+              </div>
+
+              <div class="field">
+                <label for="investment-range">Approximate savings or investment amount <span class="optional">Optional</span></label>
+                <select id="investment-range" name="investment-range">
+                  <option value="">Prefer not to say</option>
+                  <option>Not investing yet</option>
+                  <option>Under R100,000</option>
+                  <option>R100,000–R500,000</option>
+                  <option>R500,000–R1,000,000</option>
+                  <option>More than R1,000,000</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="field-group" id="contact-group" aria-describedby="contact-error">
+              <legend>How should we contact you? <span aria-hidden="true">*</span></legend>
+              <div class="choice-grid choice-grid--contact">
+                <label class="choice">
+                  <input type="radio" name="contact-method" value="Email" required />
+                  <span>Email</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="contact-method" value="Phone" />
+                  <span>Phone</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="contact-method" value="Either" />
+                  <span>Either</span>
+                </label>
+              </div>
+              <p class="field-error" id="contact-error"></p>
+            </fieldset>
+
+            <div class="field field--message">
+              <div class="label-row">
+                <label for="message">Anything else we should know? <span class="optional">Optional</span></label>
+                <span id="message-count" aria-live="polite">0 / 1000</span>
+              </div>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                maxlength="1000"
+                aria-describedby="message-hint message-count message-error"
+              ></textarea>
+              <p class="field-hint" id="message-hint">A short outline is enough. Please leave out sensitive account details.</p>
+              <p class="field-error" id="message-error"></p>
+            </div>
+
+            <div class="consent-group">
+              <label class="consent" for="consent">
+                <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error" />
+                <span>I agree to be contacted about this consultation request. <span aria-hidden="true">*</span></span>
+              </label>
+              <p class="field-error" id="consent-error"></p>
+            </div>
+
+            <div class="submit-group">
+              <button class="submit-button" type="submit" id="submit-button">
+                <span>Request a consultation</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+
+              <p class="submit-note">Your request starts a conversation. It is not a commitment to use a service.</p>
+              <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <section class="success-panel" id="success-panel" tabindex="-1" hidden aria-labelledby="success-title">
+            <div class="success-mark" aria-hidden="true">✓</div>
+            <p class="section-marker">Request received</p>
+            <h2 id="success-title">Thank you. Your details are on their way.</h2>
+            <p id="success-message">You’ll be contacted using your preferred method once your request has been reviewed.</p>
+            <button class="text-button" type="button" id="new-request">Send another request</button>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
