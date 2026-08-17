@@ -10,11 +10,11 @@ web
 
 ## Users
 
-Adults exploring help with personal financial planning, investments, savings, retirement, or general financial guidance. They may be uncertain about the right service and want a low-pressure first conversation before sharing detailed financial information.
+Adults exploring help with personal financial planning, investments, savings, retirement, estate planning, wills, trusts, or general financial guidance. They may be uncertain about the right service and want a low-pressure first conversation before sharing detailed financial information.
 
 ## Product Purpose
 
-Provide a focused, trustworthy way for prospective clients to request a financial consultation. Success means Warren receives enough context to prepare for a useful first conversation without asking visitors for sensitive account or identity information.
+Provide a focused, trustworthy way for prospective clients to request a financial or estate-planning consultation. Success means Warren receives enough context to prepare for a useful first conversation without asking visitors for sensitive account, identity, or legal-document information.
 
 ## Positioning
 
